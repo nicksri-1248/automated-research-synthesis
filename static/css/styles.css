@@ -1,0 +1,360 @@
+/* =========================================================
+   Autonomous Research Synthesis — shared stylesheet
+   ========================================================= */
+
+:root {
+  --color-bg-start: #eef2ff;
+  --color-bg-end: #e0e7ff;
+  --color-surface: #ffffff;
+  --color-border: #e2e8f0;
+  --color-text: #1e293b;
+  --color-text-muted: #64748b;
+  --color-primary: #4f46e5;
+  --color-primary-hover: #4338ca;
+  --color-error-bg: #fef2f2;
+  --color-error-border: #fecaca;
+  --color-error-text: #b91c1c;
+  --radius: 14px;
+  --shadow: 0 10px 30px -12px rgba(30, 41, 59, 0.25);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: -apple-system, "Segoe UI", Roboto, Inter, system-ui, sans-serif;
+  color: var(--color-text);
+  background: linear-gradient(160deg, var(--color-bg-start), var(--color-bg-end));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+h2, h3 {
+  margin: 0 0 8px;
+}
+
+input, textarea, button {
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+/* ---------- Auth pages (login / signup) ---------- */
+
+.auth-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.auth-card {
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 40px 36px;
+  width: 100%;
+  max-width: 380px;
+  text-align: center;
+}
+
+.auth-card h2 {
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+}
+
+.auth-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.auth-card input[type="text"],
+.auth-card input[type="password"] {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  background: #f8fafc;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.auth-card input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+  background: #fff;
+}
+
+.auth-card button {
+  margin-top: 4px;
+  padding: 12px 14px;
+  border: none;
+  border-radius: 10px;
+  background: var(--color-primary);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.05s ease;
+}
+
+.auth-card button:hover {
+  background: var(--color-primary-hover);
+}
+
+.auth-card button:active {
+  transform: scale(0.98);
+}
+
+.error {
+  background: var(--color-error-bg);
+  border: 1px solid var(--color-error-border);
+  color: var(--color-error-text);
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  margin-bottom: 16px;
+}
+
+.switch {
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+.switch a {
+  color: var(--color-primary);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.switch a:hover {
+  text-decoration: underline;
+}
+
+/* Password visibility toggle (shared by login/signup) */
+.password-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.password-wrapper input {
+  padding-right: 42px;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 1.1rem;
+  color: var(--color-text-muted);
+  transition: color 0.2s ease;
+  user-select: none;
+}
+
+.toggle-password:hover {
+  color: var(--color-primary);
+}
+
+.password-hint {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  margin-top: -6px;
+  text-align: left;
+}
+
+/* ---------- Dashboard ---------- */
+
+.dashboard-container {
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 40px 36px;
+  width: 100%;
+  max-width: 460px;
+  text-align: center;
+}
+
+.dashboard-container h2 {
+  font-size: 1.5rem;
+  margin-bottom: 24px;
+}
+
+.dashboard-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  text-align: left;
+}
+
+.dashboard-container label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+.dashboard-container input[type="text"] {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  background: #f8fafc;
+}
+
+.dashboard-container input[type="text"]:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+  background: #fff;
+}
+
+.dashboard-container button {
+  padding: 12px 14px;
+  border: none;
+  border-radius: 10px;
+  background: var(--color-primary);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.dashboard-container button:hover {
+  background: var(--color-primary-hover);
+}
+
+/* ---------- Report progress / result ---------- */
+
+.report-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 40px 36px;
+  width: 100%;
+  max-width: 520px;
+  text-align: center;
+}
+
+.card h2 {
+  font-size: 1.4rem;
+}
+
+.subtitle {
+  color: var(--color-text-muted);
+  margin-bottom: 20px;
+}
+
+.card textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  background: #f8fafc;
+  resize: vertical;
+  min-height: 120px;
+}
+
+.card textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+  background: #fff;
+}
+
+.card button {
+  margin-top: 14px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  background: var(--color-primary);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.card button:hover {
+  background: var(--color-primary-hover);
+}
+
+.note {
+  margin-top: 18px;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+.downloads {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin: 20px 0 10px;
+}
+
+.download-btn {
+  display: inline-block;
+  padding: 12px 20px;
+  border-radius: 10px;
+  background: var(--color-primary);
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.download-btn:hover {
+  background: var(--color-primary-hover);
+}
+
+/* ---------- Shared spinner overlay ---------- */
+
+#spinner-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.55);
+  backdrop-filter: blur(3px);
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #fff;
+  gap: 14px;
+}
+
+.spinner {
+  border: 6px solid rgba(255, 255, 255, 0.25);
+  border-top: 6px solid var(--color-primary);
+  border-radius: 50%;
+  width: 64px;
+  height: 64px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ---------- Small screens ---------- */
+
+@media (max-width: 480px) {
+  .auth-card,
+  .dashboard-container,
+  .card {
+    padding: 28px 22px;
+  }
+}

@@ -13,5 +13,10 @@ reportlab
 fastapi
 uvicorn
 jinja2
-
+httpx
+aiofiles
+sqlalchemy
+bcrypt==3.2.2
+passlib==1.7.4
+python-multipart
 -e .

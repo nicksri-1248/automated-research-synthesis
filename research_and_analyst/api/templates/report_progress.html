@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Report Progress | AI Report Generator</title>
+  <link rel="stylesheet" href="/static/css/styles.css" />
+</head>
+
+<body>
+  <div class="report-container">
+    <div class="card">
+      <h2>📄 Topic: {{ topic }}</h2>
+
+      {% if not pdf_path %}
+        <p class="subtitle">Your AI-generated report is ready! You can refine it below 👇</p>
+        
+        <!-- Feedback form -->
+        <form id="feedbackForm" method="post" action="/submit_feedback">
+          <!-- Hidden topic -->
+          <input type="hidden" name="topic" value="{{ topic }}">
+          <!-- Hidden thread_id (needed for workflow continuity) -->
+          <input type="hidden" name="thread_id" value="{{ thread_id }}">
+          
+          <!-- Feedback box -->
+          <textarea 
+            name="feedback" 
+            rows="6" 
+            placeholder="Enter feedback here...">{{ feedback }}</textarea>
+          
+          <!-- Submit button -->
+          <button type="submit">Submit Feedback</button>
+        </form>
+
+        <p class="note">
+          💡 Tip: Provide specific feedback like “Add more technical explanation” or “Focus on real-world examples”.
+        </p>
+
+      {% else %}
+        <h3>Final Report Ready!</h3>
+        <div class="downloads">
+          <a href="/download/{{ doc_path | basename }}" class="download-btn">⬇️ Download DOCX</a>
+          <a href="/download/{{ pdf_path | basename }}" class="download-btn">📘 Download PDF</a>
+        </div>
+        <p class="subtitle">Your report was successfully generated</p>
+      {% endif %}
+    </div>
+  </div>
+
+  <!-- Spinner overlay -->
+  <div id="spinner-overlay">
+    <div class="spinner"></div>
+    <p>Processing feedback... please wait</p>
+  </div>
+
+  <!-- Spinner script -->
+  <script>
+    const fbForm = document.getElementById("feedbackForm");
+    const fbSpinner = document.getElementById("spinner-overlay");
+    if (fbForm && fbSpinner) {
+      fbForm.addEventListener("submit", () => {
+        fbSpinner.style.display = "flex";
+      });
+    }
+  </script>
+</body>
+</html>
