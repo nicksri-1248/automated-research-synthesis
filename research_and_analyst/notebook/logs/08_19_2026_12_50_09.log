@@ -1,0 +1,14 @@
+{"timestamp": "2026-08-19T07:20:11.215803Z", "level": "info", "event": "Initializing ApiKeyManager"}
+{"timestamp": "2026-08-19T07:20:11.216634Z", "level": "info", "event": "ANTHROPIC_API_KEY loaded successfully from environment"}
+{"timestamp": "2026-08-19T07:20:11.217156Z", "level": "info", "event": "OPENAI_API_KEY loaded successfully from environment"}
+{"timestamp": "2026-08-19T07:20:11.217571Z", "level": "info", "event": "GOOGLE_API_KEY loaded successfully from environment"}
+{"timestamp": "2026-08-19T07:20:11.218136Z", "level": "info", "event": "GROQ_API_KEY loaded successfully from environment"}
+{"path": "D:\\ARTIFICIAL INTELLIGENCE\\Multi-Agent System for Research Analysis and Generation Automation\\automated-research-synthesis\\research_and_analyst\\config\\configuration.yaml", "keys": ["astra_db", "embedding_model", "retriever", "llm"], "timestamp": "2026-08-19T07:20:11.220947Z", "level": "info", "event": "Configuration loaded successfully"}
+{"config_keys": ["astra_db", "embedding_model", "retriever", "llm"], "timestamp": "2026-08-19T07:20:11.221636Z", "level": "info", "event": "YAML configuration loaded successfully"}
+{"provider": "anthropic", "model": "claude-sonnet-4-5-20250929", "timestamp": "2026-08-19T07:20:11.227133Z", "level": "info", "event": "Loading LLM"}
+{"provider": "anthropic", "model": "claude-sonnet-4-5-20250929", "timestamp": "2026-08-19T07:20:11.228225Z", "level": "info", "event": "LLM loaded successfully"}
+HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+Deserializing unregistered type __main__.Analyst from checkpoint. This will be blocked in a future version. Set LANGGRAPH_STRICT_MSGPACK=true to block now, or add to allowed_msgpack_modules to allow explicitly: [('__main__', 'Analyst')]
+HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
