@@ -30,4 +30,3 @@ automated-research-synthesis = "automated_research_synthesis:main"
 
 [tool.setuptools.packages.find]
 where = ["research_and_analyst"]
-include = ["automated_research_synthesis*"]
