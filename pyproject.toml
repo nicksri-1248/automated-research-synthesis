@@ -1,3 +1,7 @@
+[build-system]
+requires = ["uv_build>=0.12.4,<0.13.0"]
+build-backend = "uv_build"
+
 [project]
 name = "automated-research-synthesis"
 version = "0.1.0"
@@ -16,6 +20,7 @@ dependencies = [
     "langchain-groq>=1.1.3",
     "langchain-openai>=1.5.2",
     "langgraph>=1.2.11",
+    "structlog>=26.1.0",
     "tavily-python>=0.7.27",
     "wikipedia>=1.4.0",
 ]
@@ -23,6 +28,6 @@ dependencies = [
 [project.scripts]
 automated-research-synthesis = "automated_research_synthesis:main"
 
-[build-system]
-requires = ["uv_build>=0.12.4,<0.13.0"]
-build-backend = "uv_build"
+[tool.setuptools.packages.find]
+where = ["research_and_analyst"]
+include = ["automated_research_synthesis*"]

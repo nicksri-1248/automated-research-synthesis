@@ -1,0 +1,8 @@
+{"timestamp": "2026-08-19T05:58:04.389907Z", "level": "info", "event": "Initializing ApiKeyManager"}
+{"timestamp": "2026-08-19T05:58:04.392643Z", "level": "info", "event": "OPENAI_API_KEY loaded successfully from environment"}
+{"timestamp": "2026-08-19T05:58:04.395680Z", "level": "info", "event": "GOOGLE_API_KEY loaded successfully from environment"}
+{"timestamp": "2026-08-19T05:58:04.399045Z", "level": "info", "event": "GROQ_API_KEY loaded successfully from environment"}
+{"path": "D:\\ARTIFICIAL INTELLIGENCE\\Multi-Agent System for Research Analysis and Generation Automation\\automated-research-synthesis\\research_and_analyst\\config\\configuration.yaml", "keys": [], "timestamp": "2026-08-19T05:58:04.405326Z", "level": "info", "event": "Configuration loaded successfully"}
+{"config_keys": [], "timestamp": "2026-08-19T05:58:04.407697Z", "level": "info", "event": "YAML configuration loaded successfully"}
+{"error": "'llm'", "timestamp": "2026-08-19T05:58:34.564143Z", "level": "error", "event": "Error loading LLM"}
+{"error": "'llm'", "timestamp": "2026-08-19T06:06:01.699066Z", "level": "error", "event": "Error loading LLM"}

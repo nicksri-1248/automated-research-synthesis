@@ -3,12 +3,13 @@ import sys
 import json
 import asyncio
 from dotenv import load_dotenv
-from utils.config_loader import load_config
+from research_and_analyst.utils.config_loader import load_config
 from langchain_google_genai import GoogleGenerativeAIEmbeddings, ChatGoogleGenerativeAI
+from langchain_anthropic import ChatAnthropic
 from langchain_openai import ChatOpenAI
 from langchain_groq import ChatGroq
-from logger import GLOBAL_LOGGER as log
-from exception.custom_exception import ResearchAnalystException
+from research_and_analyst.logger import GLOBAL_LOGGER as log
+from research_and_analyst.exception.custom_exception import ResearchAnalystException
 
 
 class ApiKeyManager:
@@ -20,6 +21,7 @@ class ApiKeyManager:
         load_dotenv()
 
         self.api_keys = {
+            "ANTHROPIC_API_KEY": os.getenv("ANTHROPIC_API_KEY"),
             "OPENAI_API_KEY": os.getenv("OPENAI_API_KEY"),
             "GOOGLE_API_KEY": os.getenv("GOOGLE_API_KEY"),
             "GROQ_API_KEY": os.getenv("GROQ_API_KEY"),
@@ -104,16 +106,17 @@ class ModelLoader:
         Load and return a chat-based LLM according to the configured provider.
 
         Supported providers:
+            - Anthropic
             - OpenAI
             - Google (Gemini)
             - Groq
 
         Returns:
-            ChatOpenAI | ChatGoogleGenerativeAI | ChatGroq: LLM instance
+            Anthropic | ChatOpenAI | ChatGoogleGenerativeAI | ChatGroq: LLM instance
         """
         try:
             llm_block = self.config["llm"]
-            provider_key = os.getenv("LLM_PROVIDER", "openai")
+            provider_key = os.getenv("LLM_PROVIDER", "anthropic")
 
             if provider_key not in llm_block:
                 log.error("LLM provider not found in configuration", provider=provider_key)
@@ -147,6 +150,14 @@ class ModelLoader:
                     model=model_name,
                     api_key=self.api_key_mgr.get("OPENAI_API_KEY"),
                     temperature=temperature,
+                )
+
+            elif provider == "anthropic":
+                llm = ChatAnthropic(
+                    model=model_name,
+                    api_key=self.api_key_mgr.get("ANTHROPIC_API_KEY"),
+                    temperature=temperature,
+                    max_tokens=max_tokens,
                 )
 
             else:
