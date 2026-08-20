@@ -6,13 +6,14 @@
 set -e
 
 # Configuration
+UNIQUE_SUFFIX="$(date +%s | tail -c 6)"
 RESOURCE_GROUP="research-report-jenkins-rg"
 LOCATION="eastus"
-STORAGE_ACCOUNT="reportjenkinsstore"
+STORAGE_ACCOUNT="reportjenkinsstore${UNIQUE_SUFFIX}"
 FILE_SHARE="jenkins-data"
-ACR_NAME="reportjenkinsacr"
+ACR_NAME="reportjenkinsacr${UNIQUE_SUFFIX}"
 CONTAINER_NAME="jenkins-research-report"
-DNS_NAME_LABEL="jenkins-research-$(date +%s | tail -c 6)"
+DNS_NAME_LABEL="jenkins-research-${UNIQUE_SUFFIX}"
 JENKINS_IMAGE_NAME="custom-jenkins"
 JENKINS_IMAGE_TAG="lts-git-configured"
 
@@ -92,43 +93,23 @@ az acr create \
   --admin-enabled true \
   --subscription "$SUBSCRIPTION_ID"
 
-# Login to ACR
-echo "Logging in to Azure Container Registry..."
-az acr login --name $ACR_NAME
-
-# Build custom Jenkins image with Git and safe.directory configuration
-echo "Building custom Jenkins Docker image for Linux AMD64..."
-docker build --platform linux/amd64 -f Dockerfile.jenkins -t ${ACR_NAME}.azurecr.io/${JENKINS_IMAGE_NAME}:${JENKINS_IMAGE_TAG} .
-
-# Push Jenkins image to ACR with retry logic
-echo "Pushing Jenkins image to ACR..."
-MAX_RETRIES=3
-RETRY_COUNT=0
-
-while [ $RETRY_COUNT -lt $MAX_RETRIES ]; do
-  if docker push ${ACR_NAME}.azurecr.io/${JENKINS_IMAGE_NAME}:${JENKINS_IMAGE_TAG}; then
-    echo "Image pushed successfully!"
-    break
-  else
-    RETRY_COUNT=$((RETRY_COUNT + 1))
-    if [ $RETRY_COUNT -lt $MAX_RETRIES ]; then
-      echo "Push failed. Retrying ($RETRY_COUNT/$MAX_RETRIES)..."
-      sleep 5
-    else
-      echo "Failed to push image after $MAX_RETRIES attempts."
-      echo ""
-      echo "This can happen due to network issues or large image size."
-      echo ""
-      echo "Options to fix:"
-      echo "1. Re-run the script (it will use cached layers and be faster)"
-      echo "2. Check your internet connection"
-      echo "3. Try pushing manually:"
-      echo "   az acr login --name $ACR_NAME"
-      echo "   docker push ${ACR_NAME}.azurecr.io/${JENKINS_IMAGE_NAME}:${JENKINS_IMAGE_TAG}"
-      exit 1
-    fi
-  fi
-done
+# The Jenkins image is built and pushed by the "Build and Push Jenkins Image"
+# GitHub Actions workflow (.github/workflows/build-jenkins-image.yml) — not
+# locally and not via ACR Tasks (ACR Tasks is disabled on this subscription).
+# Verify the image has already landed in the registry before deploying it.
+echo "Checking for image ${JENKINS_IMAGE_NAME}:${JENKINS_IMAGE_TAG} in $ACR_NAME..."
+if ! az acr repository show \
+  --name $ACR_NAME \
+  --image ${JENKINS_IMAGE_NAME}:${JENKINS_IMAGE_TAG} \
+  --subscription "$SUBSCRIPTION_ID" &>/dev/null; then
+  echo "Image ${JENKINS_IMAGE_NAME}:${JENKINS_IMAGE_TAG} not found in $ACR_NAME."
+  echo ""
+  echo "Build it first by running the 'Build and Push Jenkins Image' GitHub Actions"
+  echo "workflow (Actions tab > Build and Push Jenkins Image > Run workflow), then"
+  echo "re-run this script."
+  exit 1
+fi
+echo "Image found."
 
 # Get ACR credentials for container deployment
 echo "Retrieving ACR credentials..."
