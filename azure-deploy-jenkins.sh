@@ -6,16 +6,16 @@
 set -e
 
 # Configuration
-# The unique suffix is persisted locally so re-running this script reuses the
-# same storage account / ACR instead of creating new orphaned ones each time.
+# Storage account and ACR names must be globally unique across all of Azure,
+# so a suffix is required. It's persisted to a local, gitignored file so
+# re-running this script reuses the same names instead of creating new
+# resources each time.
 SUFFIX_FILE="$(dirname "$0")/.azure-deploy-suffix"
 if [ -f "$SUFFIX_FILE" ]; then
     UNIQUE_SUFFIX="$(cat "$SUFFIX_FILE")"
-    echo "Reusing existing resource suffix: $UNIQUE_SUFFIX (from $SUFFIX_FILE)"
 else
     UNIQUE_SUFFIX="$(date +%s | tail -c 6)"
     echo "$UNIQUE_SUFFIX" > "$SUFFIX_FILE"
-    echo "Generated new resource suffix: $UNIQUE_SUFFIX (saved to $SUFFIX_FILE)"
 fi
 RESOURCE_GROUP="research-report-jenkins-rg"
 LOCATION="eastus"
@@ -103,23 +103,43 @@ az acr create \
   --admin-enabled true \
   --subscription "$SUBSCRIPTION_ID"
 
-# The Jenkins image is built and pushed by the "Build and Push Jenkins Image"
-# GitHub Actions workflow (.github/workflows/build-jenkins-image.yml) — not
-# locally and not via ACR Tasks (ACR Tasks is disabled on this subscription).
-# Verify the image has already landed in the registry before deploying it.
-echo "Checking for image ${JENKINS_IMAGE_NAME}:${JENKINS_IMAGE_TAG} in $ACR_NAME..."
-if ! az acr repository show \
-  --name $ACR_NAME \
-  --image ${JENKINS_IMAGE_NAME}:${JENKINS_IMAGE_TAG} \
-  --subscription "$SUBSCRIPTION_ID" &>/dev/null; then
-  echo "Image ${JENKINS_IMAGE_NAME}:${JENKINS_IMAGE_TAG} not found in $ACR_NAME."
-  echo ""
-  echo "Build it first by running the 'Build and Push Jenkins Image' GitHub Actions"
-  echo "workflow (Actions tab > Build and Push Jenkins Image > Run workflow), then"
-  echo "re-run this script."
-  exit 1
-fi
-echo "Image found."
+# Login to ACR
+echo "Logging in to Azure Container Registry..."
+az acr login --name $ACR_NAME
+
+# Build custom Jenkins image with Git and safe.directory configuration
+echo "Building custom Jenkins Docker image for Linux AMD64..."
+docker build --platform linux/amd64 -f Dockerfile.jenkins -t ${ACR_NAME}.azurecr.io/${JENKINS_IMAGE_NAME}:${JENKINS_IMAGE_TAG} .
+
+# Push Jenkins image to ACR with retry logic
+echo "Pushing Jenkins image to ACR..."
+MAX_RETRIES=3
+RETRY_COUNT=0
+
+while [ $RETRY_COUNT -lt $MAX_RETRIES ]; do
+  if docker push ${ACR_NAME}.azurecr.io/${JENKINS_IMAGE_NAME}:${JENKINS_IMAGE_TAG}; then
+    echo "Image pushed successfully!"
+    break
+  else
+    RETRY_COUNT=$((RETRY_COUNT + 1))
+    if [ $RETRY_COUNT -lt $MAX_RETRIES ]; then
+      echo "Push failed. Retrying ($RETRY_COUNT/$MAX_RETRIES)..."
+      sleep 5
+    else
+      echo "Failed to push image after $MAX_RETRIES attempts."
+      echo ""
+      echo "This can happen due to network issues or large image size."
+      echo ""
+      echo "Options to fix:"
+      echo "1. Re-run the script (it will use cached layers and be faster)"
+      echo "2. Check your internet connection"
+      echo "3. Try pushing manually:"
+      echo "   az acr login --name $ACR_NAME"
+      echo "   docker push ${ACR_NAME}.azurecr.io/${JENKINS_IMAGE_NAME}:${JENKINS_IMAGE_TAG}"
+      exit 1
+    fi
+  fi
+done
 
 # Get ACR credentials for container deployment
 echo "Retrieving ACR credentials..."
