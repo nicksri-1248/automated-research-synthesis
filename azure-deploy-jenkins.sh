@@ -6,7 +6,17 @@
 set -e
 
 # Configuration
-UNIQUE_SUFFIX="$(date +%s | tail -c 6)"
+# The unique suffix is persisted locally so re-running this script reuses the
+# same storage account / ACR instead of creating new orphaned ones each time.
+SUFFIX_FILE="$(dirname "$0")/.azure-deploy-suffix"
+if [ -f "$SUFFIX_FILE" ]; then
+    UNIQUE_SUFFIX="$(cat "$SUFFIX_FILE")"
+    echo "Reusing existing resource suffix: $UNIQUE_SUFFIX (from $SUFFIX_FILE)"
+else
+    UNIQUE_SUFFIX="$(date +%s | tail -c 6)"
+    echo "$UNIQUE_SUFFIX" > "$SUFFIX_FILE"
+    echo "Generated new resource suffix: $UNIQUE_SUFFIX (saved to $SUFFIX_FILE)"
+fi
 RESOURCE_GROUP="research-report-jenkins-rg"
 LOCATION="eastus"
 STORAGE_ACCOUNT="reportjenkinsstore${UNIQUE_SUFFIX}"
