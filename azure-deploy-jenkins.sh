@@ -6,13 +6,24 @@
 set -e
 
 # Configuration
+# Storage account and ACR names must be globally unique across all of Azure,
+# so a suffix is required. It's persisted to a local, gitignored file so
+# re-running this script reuses the same names instead of creating new
+# resources each time.
+SUFFIX_FILE="$(dirname "$0")/.azure-deploy-suffix"
+if [ -f "$SUFFIX_FILE" ]; then
+    UNIQUE_SUFFIX="$(cat "$SUFFIX_FILE")"
+else
+    UNIQUE_SUFFIX="$(date +%s | tail -c 6)"
+    echo "$UNIQUE_SUFFIX" > "$SUFFIX_FILE"
+fi
 RESOURCE_GROUP="research-report-jenkins-rg"
 LOCATION="eastus"
-STORAGE_ACCOUNT="reportjenkinsstore"
+STORAGE_ACCOUNT="reportjenkinsstore${UNIQUE_SUFFIX}"
 FILE_SHARE="jenkins-data"
-ACR_NAME="reportjenkinsacr"
+ACR_NAME="reportjenkinsacr${UNIQUE_SUFFIX}"
 CONTAINER_NAME="jenkins-research-report"
-DNS_NAME_LABEL="jenkins-research-$(date +%s | tail -c 6)"
+DNS_NAME_LABEL="jenkins-research-${UNIQUE_SUFFIX}"
 JENKINS_IMAGE_NAME="custom-jenkins"
 JENKINS_IMAGE_TAG="lts-git-configured"
 
