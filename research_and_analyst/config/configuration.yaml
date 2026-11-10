@@ -28,6 +28,6 @@ llm:
 
   anthropic:
     provider: "anthropic"
-    model_name: "claude-sonnet-5-5"
+    model_name: "claude-haiku-5-5"
     temperature: 0
     max_output_tokens: 2048
