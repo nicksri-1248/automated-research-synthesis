@@ -2,5 +2,6 @@
     "python-envs.pythonProjects": [],
     "terminal.integrated.env.windows": {
         "PATH": "C:\\Program Files\\Microsoft SDKs\\Azure\\CLI2\\wbin;${env:PATH}"
-    }
+    },
+    "python.terminal.useEnvFile": true
 }

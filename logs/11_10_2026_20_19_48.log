@@ -1,0 +1,10 @@
+{"timestamp": "2026-11-10T14:49:52.745093Z", "level": "info", "event": "Initializing ApiKeyManager"}
+{"timestamp": "2026-11-10T14:49:52.745437Z", "level": "info", "event": "ANTHROPIC_API_KEY loaded successfully from environment"}
+{"timestamp": "2026-11-10T14:49:52.745655Z", "level": "info", "event": "OPENAI_API_KEY loaded successfully from environment"}
+{"timestamp": "2026-11-10T14:49:52.745810Z", "level": "info", "event": "GOOGLE_API_KEY loaded successfully from environment"}
+{"timestamp": "2026-11-10T14:49:52.745934Z", "level": "info", "event": "GROQ_API_KEY loaded successfully from environment"}
+{"path": "D:\\ARTIFICIAL INTELLIGENCE\\Multi-Agent System for Research Analysis and Generation Automation\\automated-research-synthesis\\research_and_analyst\\config\\configuration.yaml", "keys": ["astra_db", "embedding_model", "retriever", "llm"], "timestamp": "2026-11-10T14:49:52.748849Z", "level": "info", "event": "Configuration loaded successfully"}
+{"config_keys": ["astra_db", "embedding_model", "retriever", "llm"], "timestamp": "2026-11-10T14:49:52.750463Z", "level": "info", "event": "YAML configuration loaded successfully"}
+{"provider": "anthropic", "model": "claude-sonnet-5-5", "timestamp": "2026-11-10T14:49:52.750584Z", "level": "info", "event": "Loading LLM"}
+{"provider": "anthropic", "model": "claude-sonnet-5-5", "timestamp": "2026-11-10T14:49:52.750989Z", "level": "info", "event": "LLM loaded successfully"}
+HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"

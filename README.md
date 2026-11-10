@@ -1,5 +1,7 @@
 # Automated Research Synthesis
 
+[Live Link](http://3.106.229.220:8000/)
+
 A multi-agent research and report generation system built on LangGraph. Given a topic, it spins up a panel of AI analysts, has each interview an AI expert (backed by web and Wikipedia search), and compiles the resulting sections into a structured report with human-in-the-loop feedback.
 
 ## Workflow

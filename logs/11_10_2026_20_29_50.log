@@ -1,0 +1,146 @@
+{"timestamp": "2026-11-10T15:00:31.872068Z", "level": "info", "event": "Initializing ApiKeyManager"}
+{"timestamp": "2026-11-10T15:00:31.873466Z", "level": "info", "event": "ANTHROPIC_API_KEY loaded successfully from environment"}
+{"timestamp": "2026-11-10T15:00:31.874298Z", "level": "info", "event": "OPENAI_API_KEY loaded successfully from environment"}
+{"timestamp": "2026-11-10T15:00:31.875025Z", "level": "info", "event": "GOOGLE_API_KEY loaded successfully from environment"}
+{"timestamp": "2026-11-10T15:00:31.875975Z", "level": "info", "event": "GROQ_API_KEY loaded successfully from environment"}
+{"path": "D:\\ARTIFICIAL INTELLIGENCE\\Multi-Agent System for Research Analysis and Generation Automation\\automated-research-synthesis\\research_and_analyst\\config\\configuration.yaml", "keys": ["astra_db", "embedding_model", "retriever", "llm"], "timestamp": "2026-11-10T15:00:31.884930Z", "level": "info", "event": "Configuration loaded successfully"}
+{"config_keys": ["astra_db", "embedding_model", "retriever", "llm"], "timestamp": "2026-11-10T15:00:31.887082Z", "level": "info", "event": "YAML configuration loaded successfully"}
+{"provider": "anthropic", "model": "claude-sonnet-5-5", "timestamp": "2026-11-10T15:00:31.888840Z", "level": "info", "event": "Loading LLM"}
+{"provider": "anthropic", "model": "claude-sonnet-5-5", "timestamp": "2026-11-10T15:00:31.892056Z", "level": "info", "event": "LLM loaded successfully"}
+{"module": "AutonomousReportGenerator", "timestamp": "2026-11-10T15:00:31.895574Z", "level": "info", "event": "Building report generation graph"}
+{"module": "InterviewGraphBuilder", "timestamp": "2026-11-10T15:00:31.903110Z", "level": "info", "event": "Building Interview Graph workflow"}
+{"module": "InterviewGraphBuilder", "timestamp": "2026-11-10T15:00:31.979664Z", "level": "info", "event": "Interview Graph compiled successfully"}
+{"module": "AutonomousReportGenerator", "timestamp": "2026-11-10T15:00:32.038789Z", "level": "info", "event": "Report generation graph built successfully"}
+{"module": "AutonomousReportGenerator", "timestamp": "2026-11-10T15:00:32.060014Z", "level": "warning", "event": "No analysts found \u2014 skipping interviews"}
+{"module": "ReportService", "thread_id": "9c62f815-84a5-4180-a636-c892d42c9725", "timestamp": "2026-11-10T15:00:32.062193Z", "level": "info", "event": "Feedback updated"}
+{"timestamp": "2026-11-10T15:00:34.185046Z", "level": "info", "event": "Initializing ApiKeyManager"}
+{"timestamp": "2026-11-10T15:00:34.186013Z", "level": "info", "event": "ANTHROPIC_API_KEY loaded successfully from environment"}
+{"timestamp": "2026-11-10T15:00:34.186715Z", "level": "info", "event": "OPENAI_API_KEY loaded successfully from environment"}
+{"timestamp": "2026-11-10T15:00:34.187229Z", "level": "info", "event": "GOOGLE_API_KEY loaded successfully from environment"}
+{"timestamp": "2026-11-10T15:00:34.187919Z", "level": "info", "event": "GROQ_API_KEY loaded successfully from environment"}
+{"path": "D:\\ARTIFICIAL INTELLIGENCE\\Multi-Agent System for Research Analysis and Generation Automation\\automated-research-synthesis\\research_and_analyst\\config\\configuration.yaml", "keys": ["astra_db", "embedding_model", "retriever", "llm"], "timestamp": "2026-11-10T15:00:34.197437Z", "level": "info", "event": "Configuration loaded successfully"}
+{"config_keys": ["astra_db", "embedding_model", "retriever", "llm"], "timestamp": "2026-11-10T15:00:34.198703Z", "level": "info", "event": "YAML configuration loaded successfully"}
+{"provider": "anthropic", "model": "claude-sonnet-5-5", "timestamp": "2026-11-10T15:00:34.199683Z", "level": "info", "event": "Loading LLM"}
+{"provider": "anthropic", "model": "claude-sonnet-5-5", "timestamp": "2026-11-10T15:00:34.201067Z", "level": "info", "event": "LLM loaded successfully"}
+{"module": "AutonomousReportGenerator", "timestamp": "2026-11-10T15:00:34.201965Z", "level": "info", "event": "Building report generation graph"}
+{"module": "InterviewGraphBuilder", "timestamp": "2026-11-10T15:00:34.207688Z", "level": "info", "event": "Building Interview Graph workflow"}
+{"module": "InterviewGraphBuilder", "timestamp": "2026-11-10T15:00:34.289271Z", "level": "info", "event": "Interview Graph compiled successfully"}
+{"module": "AutonomousReportGenerator", "timestamp": "2026-11-10T15:00:34.359174Z", "level": "info", "event": "Report generation graph built successfully"}
+{"module": "AutonomousReportGenerator", "timestamp": "2026-11-10T15:00:34.362226Z", "level": "warning", "event": "No analysts found \u2014 skipping interviews"}
+{"module": "ReportService", "thread_id": "9c62f815-84a5-4180-a636-c892d42c9725", "timestamp": "2026-11-10T15:00:34.363561Z", "level": "info", "event": "Feedback updated"}
+{"timestamp": "2026-11-10T15:01:00.969029Z", "level": "info", "event": "Initializing ApiKeyManager"}
+{"timestamp": "2026-11-10T15:01:00.970042Z", "level": "info", "event": "ANTHROPIC_API_KEY loaded successfully from environment"}
+{"timestamp": "2026-11-10T15:01:00.970995Z", "level": "info", "event": "OPENAI_API_KEY loaded successfully from environment"}
+{"timestamp": "2026-11-10T15:01:00.971679Z", "level": "info", "event": "GOOGLE_API_KEY loaded successfully from environment"}
+{"timestamp": "2026-11-10T15:01:00.972401Z", "level": "info", "event": "GROQ_API_KEY loaded successfully from environment"}
+{"path": "D:\\ARTIFICIAL INTELLIGENCE\\Multi-Agent System for Research Analysis and Generation Automation\\automated-research-synthesis\\research_and_analyst\\config\\configuration.yaml", "keys": ["astra_db", "embedding_model", "retriever", "llm"], "timestamp": "2026-11-10T15:01:00.984221Z", "level": "info", "event": "Configuration loaded successfully"}
+{"config_keys": ["astra_db", "embedding_model", "retriever", "llm"], "timestamp": "2026-11-10T15:01:00.985315Z", "level": "info", "event": "YAML configuration loaded successfully"}
+{"provider": "anthropic", "model": "claude-sonnet-5-5", "timestamp": "2026-11-10T15:01:00.986128Z", "level": "info", "event": "Loading LLM"}
+{"provider": "anthropic", "model": "claude-sonnet-5-5", "timestamp": "2026-11-10T15:01:00.988491Z", "level": "info", "event": "LLM loaded successfully"}
+{"module": "AutonomousReportGenerator", "timestamp": "2026-11-10T15:01:00.990239Z", "level": "info", "event": "Building report generation graph"}
+{"module": "InterviewGraphBuilder", "timestamp": "2026-11-10T15:01:01.002056Z", "level": "info", "event": "Building Interview Graph workflow"}
+{"module": "InterviewGraphBuilder", "timestamp": "2026-11-10T15:01:01.134847Z", "level": "info", "event": "Interview Graph compiled successfully"}
+{"module": "AutonomousReportGenerator", "timestamp": "2026-11-10T15:01:01.207478Z", "level": "info", "event": "Report generation graph built successfully"}
+{"module": "ReportService", "topic": "Dark matter and dark energy", "thread_id": "ce9d949b-87ea-4e3e-a6ad-3f34f89f337e", "timestamp": "2026-11-10T15:01:01.209697Z", "level": "info", "event": "Starting report pipeline"}
+{"module": "AutonomousReportGenerator", "topic": "Dark matter and dark energy", "timestamp": "2026-11-10T15:01:01.239847Z", "level": "info", "event": "Creating analyst personas"}
+HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+{"module": "AutonomousReportGenerator", "count": 3, "timestamp": "2026-11-10T15:01:08.497043Z", "level": "info", "event": "Analysts created"}
+{"timestamp": "2026-11-10T15:01:12.279394Z", "level": "info", "event": "Initializing ApiKeyManager"}
+{"timestamp": "2026-11-10T15:01:12.280576Z", "level": "info", "event": "ANTHROPIC_API_KEY loaded successfully from environment"}
+{"timestamp": "2026-11-10T15:01:12.281456Z", "level": "info", "event": "OPENAI_API_KEY loaded successfully from environment"}
+{"timestamp": "2026-11-10T15:01:12.282263Z", "level": "info", "event": "GOOGLE_API_KEY loaded successfully from environment"}
+{"timestamp": "2026-11-10T15:01:12.282814Z", "level": "info", "event": "GROQ_API_KEY loaded successfully from environment"}
+{"path": "D:\\ARTIFICIAL INTELLIGENCE\\Multi-Agent System for Research Analysis and Generation Automation\\automated-research-synthesis\\research_and_analyst\\config\\configuration.yaml", "keys": ["astra_db", "embedding_model", "retriever", "llm"], "timestamp": "2026-11-10T15:01:12.293191Z", "level": "info", "event": "Configuration loaded successfully"}
+{"config_keys": ["astra_db", "embedding_model", "retriever", "llm"], "timestamp": "2026-11-10T15:01:12.295075Z", "level": "info", "event": "YAML configuration loaded successfully"}
+{"provider": "anthropic", "model": "claude-sonnet-5-5", "timestamp": "2026-11-10T15:01:12.296534Z", "level": "info", "event": "Loading LLM"}
+{"provider": "anthropic", "model": "claude-sonnet-5-5", "timestamp": "2026-11-10T15:01:12.297992Z", "level": "info", "event": "LLM loaded successfully"}
+{"module": "AutonomousReportGenerator", "timestamp": "2026-11-10T15:01:12.299323Z", "level": "info", "event": "Building report generation graph"}
+{"module": "InterviewGraphBuilder", "timestamp": "2026-11-10T15:01:12.305836Z", "level": "info", "event": "Building Interview Graph workflow"}
+{"module": "InterviewGraphBuilder", "timestamp": "2026-11-10T15:01:12.399910Z", "level": "info", "event": "Interview Graph compiled successfully"}
+{"module": "AutonomousReportGenerator", "timestamp": "2026-11-10T15:01:12.464034Z", "level": "info", "event": "Report generation graph built successfully"}
+Deserializing unregistered type research_and_analyst.schemas.models.Analyst from checkpoint. This will be blocked in a future version. Set LANGGRAPH_STRICT_MSGPACK=true to block now, or add to allowed_msgpack_modules to allow explicitly: [('research_and_analyst.schemas.models', 'Analyst')]
+{"module": "ReportService", "thread_id": "ce9d949b-87ea-4e3e-a6ad-3f34f89f337e", "timestamp": "2026-11-10T15:01:12.475454Z", "level": "info", "event": "Feedback updated"}
+{"module": "InterviewGraphBuilder", "analyst": "Dr. Elena Marchetti", "timestamp": "2026-11-10T15:01:12.533047Z", "level": "info", "event": "Generating analyst question"}
+{"module": "InterviewGraphBuilder", "analyst": "Dr. Rajesh Venkataraman", "timestamp": "2026-11-10T15:01:12.534691Z", "level": "info", "event": "Generating analyst question"}
+{"module": "InterviewGraphBuilder", "analyst": "Dr. Amara Okonkwo", "timestamp": "2026-11-10T15:01:12.543995Z", "level": "info", "event": "Generating analyst question"}
+HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+{"module": "InterviewGraphBuilder", "question_preview": "Hello, I'm Maya Lindqvist, a science writer and analyst. I'm putting together a piece on what's cracking, or not cracking, in our picture of the universe. Thanks for making time, expert.\n\nMost people ", "timestamp": "2026-11-10T15:01:16.242077Z", "level": "info", "event": "Question generated successfully"}
+{"module": "InterviewGraphBuilder", "timestamp": "2026-11-10T15:01:16.247612Z", "level": "info", "event": "Generating search query from conversation"}
+HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+{"module": "InterviewGraphBuilder", "question_preview": "Hi, I'm Sam Whitaker, an analyst researching how we search for the universe's invisible components. Thanks for joining me, expert.\n\nI'd like to start with dark matter, since your work centers on it, a", "timestamp": "2026-11-10T15:01:16.889072Z", "level": "info", "event": "Question generated successfully"}
+{"module": "InterviewGraphBuilder", "timestamp": "2026-11-10T15:01:16.897767Z", "level": "info", "event": "Generating search query from conversation"}
+HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+{"module": "InterviewGraphBuilder", "question_preview": "Hello, I'm Amara Okonkwo, a theoretical physicist at the Perimeter Institute. I work on whether the phenomena we attribute to dark matter and dark energy might signal a breakdown of general relativity", "timestamp": "2026-11-10T15:01:17.684262Z", "level": "info", "event": "Question generated successfully"}
+{"module": "InterviewGraphBuilder", "timestamp": "2026-11-10T15:01:17.690401Z", "level": "info", "event": "Generating search query from conversation"}
+HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+{"module": "InterviewGraphBuilder", "query": "DESI baryon acoustic oscillation results evolving dark energy w0 wa significance combined with supernova datasets Pantheon+ Union3 DESY5", "timestamp": "2026-11-10T15:01:18.110690Z", "level": "info", "event": "Performing Tavily web search"}
+HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+{"module": "InterviewGraphBuilder", "query": "LZ XENONnT ADMX null results constraints on WIMP dark matter parameter space and axion candidates", "timestamp": "2026-11-10T15:01:18.805756Z", "level": "info", "event": "Performing Tavily web search"}
+HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+{"module": "InterviewGraphBuilder", "query": "Bullet Cluster evidence for dark matter vs modified gravity MOND TeVeS lensing offset collision velocity", "timestamp": "2026-11-10T15:01:19.309719Z", "level": "info", "event": "Performing Tavily web search"}
+{"module": "InterviewGraphBuilder", "result_count": 5, "timestamp": "2026-11-10T15:01:22.078848Z", "level": "info", "event": "Web search completed"}
+{"module": "InterviewGraphBuilder", "analyst": "Dr. Elena Marchetti", "timestamp": "2026-11-10T15:01:22.082808Z", "level": "info", "event": "Generating expert answer"}
+{"module": "InterviewGraphBuilder", "result_count": 5, "timestamp": "2026-11-10T15:01:23.101957Z", "level": "info", "event": "Web search completed"}
+{"module": "InterviewGraphBuilder", "analyst": "Dr. Rajesh Venkataraman", "timestamp": "2026-11-10T15:01:23.107843Z", "level": "info", "event": "Generating expert answer"}
+{"module": "InterviewGraphBuilder", "result_count": 5, "timestamp": "2026-11-10T15:01:23.817994Z", "level": "info", "event": "Web search completed"}
+{"module": "InterviewGraphBuilder", "analyst": "Dr. Amara Okonkwo", "timestamp": "2026-11-10T15:01:23.824871Z", "level": "info", "event": "Generating expert answer"}
+HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+{"module": "InterviewGraphBuilder", "preview": "Expert : The picture is more nuanced than \"nothing found, so it's dead.\" The null results close off specific regions of parameter space rather than the whole WIMP idea.\n\n**What the nulls rule out**\n- ", "timestamp": "2026-11-10T15:01:31.802117Z", "level": "info", "event": "Expert answer generated successfully"}
+{"module": "InterviewGraphBuilder", "message_count": 3, "timestamp": "2026-11-10T15:01:31.803398Z", "level": "info", "event": "Interview transcript saved"}
+{"module": "InterviewGraphBuilder", "analyst": "Dr. Elena Marchetti", "timestamp": "2026-11-10T15:01:31.804833Z", "level": "info", "event": "Generating report section"}
+HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+{"module": "InterviewGraphBuilder", "preview": "Expert : Dark energy and dark matter are different problems, and the DESI hint concerns only dark energy. Here is what DESI saw and how much weight I would give it.\n\n**What DESI saw**\n\n- DESI DR2 BAO ", "timestamp": "2026-11-10T15:01:35.807146Z", "level": "info", "event": "Expert answer generated successfully"}
+{"module": "InterviewGraphBuilder", "message_count": 3, "timestamp": "2026-11-10T15:01:35.808181Z", "level": "info", "event": "Interview transcript saved"}
+{"module": "InterviewGraphBuilder", "analyst": "Dr. Rajesh Venkataraman", "timestamp": "2026-11-10T15:01:35.809507Z", "level": "info", "event": "Generating report section"}
+HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+{"module": "InterviewGraphBuilder", "preview": "Expert : The Bullet Cluster rules out less than the \"smoking gun\" framing suggests, but it still puts real pressure on modified gravity.\n\n**The standard case**\n- The X-ray data show that most of the g", "timestamp": "2026-11-10T15:01:37.534288Z", "level": "info", "event": "Expert answer generated successfully"}
+{"module": "InterviewGraphBuilder", "message_count": 3, "timestamp": "2026-11-10T15:01:37.536569Z", "level": "info", "event": "Interview transcript saved"}
+{"module": "InterviewGraphBuilder", "analyst": "Dr. Amara Okonkwo", "timestamp": "2026-11-10T15:01:37.539383Z", "level": "info", "event": "Generating report section"}
+HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+{"module": "InterviewGraphBuilder", "length": 4807, "timestamp": "2026-11-10T15:01:45.831625Z", "level": "info", "event": "Report section generated successfully"}
+HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+{"module": "InterviewGraphBuilder", "length": 4854, "timestamp": "2026-11-10T15:01:49.150938Z", "level": "info", "event": "Report section generated successfully"}
+HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+{"module": "InterviewGraphBuilder", "length": 5503, "timestamp": "2026-11-10T15:01:51.160876Z", "level": "info", "event": "Report section generated successfully"}
+{"module": "AutonomousReportGenerator", "topic": "Dark matter and dark energy", "timestamp": "2026-11-10T15:01:51.163706Z", "level": "info", "event": "Writing report"}
+{"module": "AutonomousReportGenerator", "topic": "Dark matter and dark energy", "timestamp": "2026-11-10T15:01:51.163978Z", "level": "info", "event": "Generating introduction"}
+{"module": "AutonomousReportGenerator", "topic": "Dark matter and dark energy", "timestamp": "2026-11-10T15:01:51.164240Z", "level": "info", "event": "Generating conclusion"}
+HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+{"module": "AutonomousReportGenerator", "length": 663, "timestamp": "2026-11-10T15:01:53.925480Z", "level": "info", "event": "Conclusion generated"}
+HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+{"module": "AutonomousReportGenerator", "length": 741, "timestamp": "2026-11-10T15:01:54.642197Z", "level": "info", "event": "Introduction generated"}
+HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+{"module": "AutonomousReportGenerator", "timestamp": "2026-11-10T15:02:04.335334Z", "level": "info", "event": "Report written successfully"}
+{"module": "AutonomousReportGenerator", "timestamp": "2026-11-10T15:02:04.340355Z", "level": "info", "event": "Finalizing report compilation"}
+{"module": "AutonomousReportGenerator", "timestamp": "2026-11-10T15:02:04.343138Z", "level": "info", "event": "Report finalized"}
+{"module": "AutonomousReportGenerator", "topic": "Dark matter and dark energy", "format": "docx", "timestamp": "2026-11-10T15:02:04.352312Z", "level": "info", "event": "Saving report"}
+{"module": "AutonomousReportGenerator", "path": "D:\\ARTIFICIAL INTELLIGENCE\\Multi-Agent System for Research Analysis and Generation Automation\\automated-research-synthesis\\generated_report\\Dark_matter_and_dark_energy_20261110_203204\\Dark_matter_and_dark_energy_20261110_203204.docx", "timestamp": "2026-11-10T15:02:04.582930Z", "level": "info", "event": "Report saved successfully"}
+{"module": "AutonomousReportGenerator", "topic": "Dark matter and dark energy", "format": "pdf", "timestamp": "2026-11-10T15:02:04.584058Z", "level": "info", "event": "Saving report"}
+{"module": "AutonomousReportGenerator", "path": "D:\\ARTIFICIAL INTELLIGENCE\\Multi-Agent System for Research Analysis and Generation Automation\\automated-research-synthesis\\generated_report\\Dark_matter_and_dark_energy_20261110_203204\\Dark_matter_and_dark_energy_20261110_203204.pdf", "timestamp": "2026-11-10T15:02:04.636774Z", "level": "info", "event": "Centered PDF saved successfully"}
+{"module": "AutonomousReportGenerator", "path": "D:\\ARTIFICIAL INTELLIGENCE\\Multi-Agent System for Research Analysis and Generation Automation\\automated-research-synthesis\\generated_report\\Dark_matter_and_dark_energy_20261110_203204\\Dark_matter_and_dark_energy_20261110_203204.pdf", "timestamp": "2026-11-10T15:02:04.637796Z", "level": "info", "event": "Report saved successfully"}
+{"timestamp": "2026-11-10T15:02:13.492082Z", "level": "info", "event": "Initializing ApiKeyManager"}
+{"timestamp": "2026-11-10T15:02:13.492722Z", "level": "info", "event": "ANTHROPIC_API_KEY loaded successfully from environment"}
+{"timestamp": "2026-11-10T15:02:13.493597Z", "level": "info", "event": "OPENAI_API_KEY loaded successfully from environment"}
+{"timestamp": "2026-11-10T15:02:13.494395Z", "level": "info", "event": "GOOGLE_API_KEY loaded successfully from environment"}
+{"timestamp": "2026-11-10T15:02:13.495352Z", "level": "info", "event": "GROQ_API_KEY loaded successfully from environment"}
+{"path": "D:\\ARTIFICIAL INTELLIGENCE\\Multi-Agent System for Research Analysis and Generation Automation\\automated-research-synthesis\\research_and_analyst\\config\\configuration.yaml", "keys": ["astra_db", "embedding_model", "retriever", "llm"], "timestamp": "2026-11-10T15:02:13.508071Z", "level": "info", "event": "Configuration loaded successfully"}
+{"config_keys": ["astra_db", "embedding_model", "retriever", "llm"], "timestamp": "2026-11-10T15:02:13.511649Z", "level": "info", "event": "YAML configuration loaded successfully"}
+{"provider": "anthropic", "model": "claude-sonnet-5-5", "timestamp": "2026-11-10T15:02:13.513282Z", "level": "info", "event": "Loading LLM"}
+{"provider": "anthropic", "model": "claude-sonnet-5-5", "timestamp": "2026-11-10T15:02:13.515018Z", "level": "info", "event": "LLM loaded successfully"}
+{"module": "AutonomousReportGenerator", "timestamp": "2026-11-10T15:02:13.518218Z", "level": "info", "event": "Building report generation graph"}
+{"module": "InterviewGraphBuilder", "timestamp": "2026-11-10T15:02:13.525586Z", "level": "info", "event": "Building Interview Graph workflow"}
+{"module": "InterviewGraphBuilder", "timestamp": "2026-11-10T15:02:13.611408Z", "level": "info", "event": "Interview Graph compiled successfully"}
+{"module": "AutonomousReportGenerator", "timestamp": "2026-11-10T15:02:13.699048Z", "level": "info", "event": "Report generation graph built successfully"}
+{"timestamp": "2026-11-10T15:02:20.461420Z", "level": "info", "event": "Initializing ApiKeyManager"}
+{"timestamp": "2026-11-10T15:02:20.462366Z", "level": "info", "event": "ANTHROPIC_API_KEY loaded successfully from environment"}
+{"timestamp": "2026-11-10T15:02:20.462992Z", "level": "info", "event": "OPENAI_API_KEY loaded successfully from environment"}
+{"timestamp": "2026-11-10T15:02:20.463539Z", "level": "info", "event": "GOOGLE_API_KEY loaded successfully from environment"}
+{"timestamp": "2026-11-10T15:02:20.464169Z", "level": "info", "event": "GROQ_API_KEY loaded successfully from environment"}
+{"path": "D:\\ARTIFICIAL INTELLIGENCE\\Multi-Agent System for Research Analysis and Generation Automation\\automated-research-synthesis\\research_and_analyst\\config\\configuration.yaml", "keys": ["astra_db", "embedding_model", "retriever", "llm"], "timestamp": "2026-11-10T15:02:20.475859Z", "level": "info", "event": "Configuration loaded successfully"}
+{"config_keys": ["astra_db", "embedding_model", "retriever", "llm"], "timestamp": "2026-11-10T15:02:20.477155Z", "level": "info", "event": "YAML configuration loaded successfully"}
+{"provider": "anthropic", "model": "claude-sonnet-5-5", "timestamp": "2026-11-10T15:02:20.478635Z", "level": "info", "event": "Loading LLM"}
+{"provider": "anthropic", "model": "claude-sonnet-5-5", "timestamp": "2026-11-10T15:02:20.482871Z", "level": "info", "event": "LLM loaded successfully"}
+{"module": "AutonomousReportGenerator", "timestamp": "2026-11-10T15:02:20.489484Z", "level": "info", "event": "Building report generation graph"}
+{"module": "InterviewGraphBuilder", "timestamp": "2026-11-10T15:02:20.493402Z", "level": "info", "event": "Building Interview Graph workflow"}
+{"module": "InterviewGraphBuilder", "timestamp": "2026-11-10T15:02:20.589727Z", "level": "info", "event": "Interview Graph compiled successfully"}
+{"module": "AutonomousReportGenerator", "timestamp": "2026-11-10T15:02:20.655121Z", "level": "info", "event": "Report generation graph built successfully"}

@@ -1,0 +1,54 @@
+{"timestamp": "2026-11-10T14:54:29.299286Z", "level": "info", "event": "Initializing ApiKeyManager"}
+{"timestamp": "2026-11-10T14:54:29.301312Z", "level": "info", "event": "ANTHROPIC_API_KEY loaded successfully from environment"}
+{"timestamp": "2026-11-10T14:54:29.302029Z", "level": "info", "event": "OPENAI_API_KEY loaded successfully from environment"}
+{"timestamp": "2026-11-10T14:54:29.302641Z", "level": "info", "event": "GOOGLE_API_KEY loaded successfully from environment"}
+{"timestamp": "2026-11-10T14:54:29.303316Z", "level": "info", "event": "GROQ_API_KEY loaded successfully from environment"}
+{"path": "D:\\ARTIFICIAL INTELLIGENCE\\Multi-Agent System for Research Analysis and Generation Automation\\automated-research-synthesis\\research_and_analyst\\config\\configuration.yaml", "keys": ["astra_db", "embedding_model", "retriever", "llm"], "timestamp": "2026-11-10T14:54:29.318739Z", "level": "info", "event": "Configuration loaded successfully"}
+{"config_keys": ["astra_db", "embedding_model", "retriever", "llm"], "timestamp": "2026-11-10T14:54:29.322135Z", "level": "info", "event": "YAML configuration loaded successfully"}
+{"provider": "anthropic", "model": "claude-sonnet-5-5", "timestamp": "2026-11-10T14:54:29.323158Z", "level": "info", "event": "Loading LLM"}
+{"provider": "anthropic", "model": "claude-sonnet-5-5", "timestamp": "2026-11-10T14:54:29.328806Z", "level": "info", "event": "LLM loaded successfully"}
+{"module": "AutonomousReportGenerator", "timestamp": "2026-11-10T14:54:29.334364Z", "level": "info", "event": "Building report generation graph"}
+{"module": "InterviewGraphBuilder", "timestamp": "2026-11-10T14:54:29.355320Z", "level": "info", "event": "Building Interview Graph workflow"}
+{"module": "InterviewGraphBuilder", "timestamp": "2026-11-10T14:54:29.439661Z", "level": "info", "event": "Interview Graph compiled successfully"}
+{"module": "AutonomousReportGenerator", "timestamp": "2026-11-10T14:54:29.502237Z", "level": "info", "event": "Report generation graph built successfully"}
+{"module": "ReportService", "topic": "Dark matter and dark energy", "thread_id": "05e54bfd-3892-4524-b372-b883aa49467d", "timestamp": "2026-11-10T14:54:29.503491Z", "level": "info", "event": "Starting report pipeline"}
+{"module": "AutonomousReportGenerator", "topic": "Dark matter and dark energy", "timestamp": "2026-11-10T14:54:29.604270Z", "level": "info", "event": "Creating analyst personas"}
+HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+{"module": "AutonomousReportGenerator", "count": 3, "timestamp": "2026-11-10T14:54:36.500705Z", "level": "info", "event": "Analysts created"}
+{"timestamp": "2026-11-10T14:54:42.820110Z", "level": "info", "event": "Initializing ApiKeyManager"}
+{"timestamp": "2026-11-10T14:54:42.821162Z", "level": "info", "event": "ANTHROPIC_API_KEY loaded successfully from environment"}
+{"timestamp": "2026-11-10T14:54:42.822016Z", "level": "info", "event": "OPENAI_API_KEY loaded successfully from environment"}
+{"timestamp": "2026-11-10T14:54:42.822848Z", "level": "info", "event": "GOOGLE_API_KEY loaded successfully from environment"}
+{"timestamp": "2026-11-10T14:54:42.823809Z", "level": "info", "event": "GROQ_API_KEY loaded successfully from environment"}
+{"path": "D:\\ARTIFICIAL INTELLIGENCE\\Multi-Agent System for Research Analysis and Generation Automation\\automated-research-synthesis\\research_and_analyst\\config\\configuration.yaml", "keys": ["astra_db", "embedding_model", "retriever", "llm"], "timestamp": "2026-11-10T14:54:42.833995Z", "level": "info", "event": "Configuration loaded successfully"}
+{"config_keys": ["astra_db", "embedding_model", "retriever", "llm"], "timestamp": "2026-11-10T14:54:42.835335Z", "level": "info", "event": "YAML configuration loaded successfully"}
+{"provider": "anthropic", "model": "claude-sonnet-5-5", "timestamp": "2026-11-10T14:54:42.836580Z", "level": "info", "event": "Loading LLM"}
+{"provider": "anthropic", "model": "claude-sonnet-5-5", "timestamp": "2026-11-10T14:54:42.838707Z", "level": "info", "event": "LLM loaded successfully"}
+{"module": "AutonomousReportGenerator", "timestamp": "2026-11-10T14:54:42.841303Z", "level": "info", "event": "Building report generation graph"}
+{"module": "InterviewGraphBuilder", "timestamp": "2026-11-10T14:54:42.846001Z", "level": "info", "event": "Building Interview Graph workflow"}
+{"module": "InterviewGraphBuilder", "timestamp": "2026-11-10T14:54:42.938020Z", "level": "info", "event": "Interview Graph compiled successfully"}
+{"module": "AutonomousReportGenerator", "timestamp": "2026-11-10T14:54:43.007801Z", "level": "info", "event": "Report generation graph built successfully"}
+Deserializing unregistered type research_and_analyst.schemas.models.Analyst from checkpoint. This will be blocked in a future version. Set LANGGRAPH_STRICT_MSGPACK=true to block now, or add to allowed_msgpack_modules to allow explicitly: [('research_and_analyst.schemas.models', 'Analyst')]
+{"module": "ReportService", "thread_id": "05e54bfd-3892-4524-b372-b883aa49467d", "timestamp": "2026-11-10T14:54:43.014303Z", "level": "info", "event": "Feedback updated"}
+{"module": "InterviewGraphBuilder", "analyst": "Dr. Elena Marchetti", "timestamp": "2026-11-10T14:54:43.054409Z", "level": "info", "event": "Generating analyst question"}
+{"module": "InterviewGraphBuilder", "analyst": "Dr. Marcus Okafor", "timestamp": "2026-11-10T14:54:43.056891Z", "level": "info", "event": "Generating analyst question"}
+{"module": "InterviewGraphBuilder", "analyst": "Dr. Priya Raghunathan", "timestamp": "2026-11-10T14:54:43.064837Z", "level": "info", "event": "Generating analyst question"}
+HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+{"module": "InterviewGraphBuilder", "question_preview": "Hi, I'm Priya Raman, an analyst who writes about fundamental physics. I'm glad to speak with you today, expert.\n\nYou work on the hunt for dark matter's microscopic nature, so I'd like to focus there r", "timestamp": "2026-11-10T14:54:46.928174Z", "level": "info", "event": "Question generated successfully"}
+{"module": "InterviewGraphBuilder", "timestamp": "2026-11-10T14:54:46.932261Z", "level": "info", "event": "Generating search query from conversation"}
+HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+{"module": "InterviewGraphBuilder", "question_preview": "Hi, I'm Elena Marchetti, an observational cosmologist at the Institute for Cosmology and Observational Astronomy. My work centers on the Hubble tension and on whether the evidence for evolving dark en", "timestamp": "2026-11-10T14:54:47.982812Z", "level": "info", "event": "Question generated successfully"}
+{"module": "InterviewGraphBuilder", "timestamp": "2026-11-10T14:54:47.988686Z", "level": "info", "event": "Generating search query from conversation"}
+HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+{"module": "InterviewGraphBuilder", "query": "implications of null results from LZ and XENONnT dark matter direct detection for WIMP parameter space and alternative candidates like axions and neutrino fog", "timestamp": "2026-11-10T14:54:49.034422Z", "level": "info", "event": "Performing Tavily web search"}
+{"module": "InterviewGraphBuilder", "error": "'str' object has no attribute 'get'", "timestamp": "2026-11-10T14:54:49.574810Z", "level": "error", "event": "Error during web search"}
+HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+{"module": "InterviewGraphBuilder", "query": "DESI BAO evolving dark energy w0wa preference depends on supernova sample Pantheon+ Union3 DESY5 systematics calibration", "timestamp": "2026-11-10T14:54:49.841291Z", "level": "info", "event": "Performing Tavily web search"}
+{"module": "InterviewGraphBuilder", "error": "'str' object has no attribute 'get'", "timestamp": "2026-11-10T14:54:50.293278Z", "level": "error", "event": "Error during web search"}
+HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+{"module": "InterviewGraphBuilder", "question_preview": "Hello, I'm Priya Raghunathan, a theoretical physicist working on modified gravity. My work covers MOND, f(R) gravity, emergent gravity, and quintessence models of dark energy. I'm interested in whethe", "timestamp": "2026-11-10T14:54:55.697845Z", "level": "info", "event": "Question generated successfully"}
+{"module": "InterviewGraphBuilder", "timestamp": "2026-11-10T14:54:55.701775Z", "level": "info", "event": "Generating search query from conversation"}
+HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+{"module": "InterviewGraphBuilder", "query": "strongest evidence for particle dark matter over modified gravity: Bullet Cluster lensing offset, CMB acoustic peaks, MOND with sterile neutrinos, TeVeS shortcomings", "timestamp": "2026-11-10T14:54:57.516560Z", "level": "info", "event": "Performing Tavily web search"}
+{"module": "InterviewGraphBuilder", "error": "'str' object has no attribute 'get'", "timestamp": "2026-11-10T14:54:57.974631Z", "level": "error", "event": "Error during web search"}
+{"module": "ReportService", "error": "Error in [D:\\ARTIFICIAL INTELLIGENCE\\Multi-Agent System for Research Analysis and Generation Automation\\automated-research-synthesis\\research_and_analyst\\workflows\\interview_workflow.py] at line [103] | Message: Failed during web search execution\nTraceback:\nTraceback (most recent call last):\n  File \"D:\\ARTIFICIAL INTELLIGENCE\\Multi-Agent System for Research Analysis and Generation Automation\\automated-research-synthesis\\research_and_analyst\\workflows\\interview_workflow.py\", line 103, in _search_web\n    f'<Document href=\"{doc.get(\"url\", \"#\")}\"/>\\n{doc.get(\"content\", \"\")}\\n</Document>'\n                       ^^^^^^^\nAttributeError: 'str' object has no attribute 'get'\n", "timestamp": "2026-11-10T14:54:57.981738Z", "level": "error", "event": "Error updating feedback"}

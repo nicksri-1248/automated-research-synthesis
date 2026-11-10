@@ -156,7 +156,7 @@ class ModelLoader:
                 llm = ChatAnthropic(
                     model=model_name,
                     api_key=self.api_key_mgr.get("ANTHROPIC_API_KEY"),
-                    temperature=temperature,
+                    # `temperature` is deprecated for newer Claude models, so it is not sent.
                     max_tokens=max_tokens,
                 )
 

@@ -1,0 +1,25 @@
+{"timestamp": "2026-11-10T14:56:06.253364Z", "level": "info", "event": "Initializing ApiKeyManager"}
+{"timestamp": "2026-11-10T14:56:06.253661Z", "level": "info", "event": "ANTHROPIC_API_KEY loaded successfully from environment"}
+{"timestamp": "2026-11-10T14:56:06.253801Z", "level": "info", "event": "OPENAI_API_KEY loaded successfully from environment"}
+{"timestamp": "2026-11-10T14:56:06.253879Z", "level": "info", "event": "GOOGLE_API_KEY loaded successfully from environment"}
+{"timestamp": "2026-11-10T14:56:06.253941Z", "level": "info", "event": "GROQ_API_KEY loaded successfully from environment"}
+{"path": "D:\\ARTIFICIAL INTELLIGENCE\\Multi-Agent System for Research Analysis and Generation Automation\\automated-research-synthesis\\research_and_analyst\\config\\configuration.yaml", "keys": ["astra_db", "embedding_model", "retriever", "llm"], "timestamp": "2026-11-10T14:56:06.257631Z", "level": "info", "event": "Configuration loaded successfully"}
+{"config_keys": ["astra_db", "embedding_model", "retriever", "llm"], "timestamp": "2026-11-10T14:56:06.258911Z", "level": "info", "event": "YAML configuration loaded successfully"}
+{"provider": "anthropic", "model": "claude-sonnet-5-5", "timestamp": "2026-11-10T14:56:06.259050Z", "level": "info", "event": "Loading LLM"}
+{"provider": "anthropic", "model": "claude-sonnet-5-5", "timestamp": "2026-11-10T14:56:06.259454Z", "level": "info", "event": "LLM loaded successfully"}
+{"module": "InterviewGraphBuilder", "timestamp": "2026-11-10T14:56:06.260254Z", "level": "info", "event": "Building Interview Graph workflow"}
+{"module": "InterviewGraphBuilder", "timestamp": "2026-11-10T14:56:06.272144Z", "level": "info", "event": "Interview Graph compiled successfully"}
+{"module": "InterviewGraphBuilder", "analyst": "Dr X", "timestamp": "2026-11-10T14:56:06.277890Z", "level": "info", "event": "Generating analyst question"}
+HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+{"module": "InterviewGraphBuilder", "question_preview": "Yes, that's right. Thanks for making time, expert. I'm Maya Okafor, and I'm writing about the hunt for dark matter, with a focus on detection.\n\nI'd like to start with something that seems counterintui", "timestamp": "2026-11-10T14:56:10.712732Z", "level": "info", "event": "Question generated successfully"}
+{"module": "InterviewGraphBuilder", "timestamp": "2026-11-10T14:56:10.714790Z", "level": "info", "event": "Generating search query from conversation"}
+HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+{"module": "InterviewGraphBuilder", "query": "what do null results from dark matter direct detection experiments XENONnT LUX-ZEPLIN PandaX tell us exclusion limits WIMP parameter space", "timestamp": "2026-11-10T14:56:12.317879Z", "level": "info", "event": "Performing Tavily web search"}
+{"module": "InterviewGraphBuilder", "result_count": 5, "timestamp": "2026-11-10T14:56:16.357834Z", "level": "info", "event": "Web search completed"}
+{"module": "InterviewGraphBuilder", "analyst": "Dr X", "timestamp": "2026-11-10T14:56:16.359772Z", "level": "info", "event": "Generating expert answer"}
+HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+{"module": "InterviewGraphBuilder", "preview": "Expert : A null result is not \"nothing.\" Each one rules out a region of parameter space, and the limits get tighter over time. The context doesn't include any personal anecdotes from my own work, so I", "timestamp": "2026-11-10T14:56:28.262169Z", "level": "info", "event": "Expert answer generated successfully"}
+{"module": "InterviewGraphBuilder", "message_count": 3, "timestamp": "2026-11-10T14:56:28.263298Z", "level": "info", "event": "Interview transcript saved"}
+{"module": "InterviewGraphBuilder", "analyst": "Dr X", "timestamp": "2026-11-10T14:56:28.264935Z", "level": "info", "event": "Generating report section"}
+HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+{"module": "InterviewGraphBuilder", "length": 2, "timestamp": "2026-11-10T14:56:42.626856Z", "level": "info", "event": "Report section generated successfully"}

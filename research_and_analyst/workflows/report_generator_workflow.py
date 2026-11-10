@@ -35,6 +35,20 @@ from research_and_analyst.logger import GLOBAL_LOGGER
 from research_and_analyst.exception.custom_exception import ResearchAnalystException
 
 
+
+def _message_text(msg) -> str:
+    """Return only the text of an LLM reply (newer Claude models return a list of content
+    blocks that can include empty 'thinking' blocks)."""
+    content = msg.content
+    if isinstance(content, str):
+        return content
+    return "".join(
+        b.get("text", "") if isinstance(b, dict) else str(b)
+        for b in content
+        if not isinstance(b, dict) or b.get("type") == "text"
+    )
+
+
 class AutonomousReportGenerator:
     """
     Handles the end-to-end autonomous report generation workflow using LangGraph.
@@ -43,9 +57,8 @@ class AutonomousReportGenerator:
     def __init__(self, llm):
         self.llm = llm
         self.memory = MemorySaver()
-        self.tavily_search = TavilySearchResults(
-            tavily_api_key="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"
-        )
+        # Reads TAVILY_API_KEY from the environment (.env).
+        self.tavily_search = TavilySearchResults()
         self.logger = GLOBAL_LOGGER.bind(module="AutonomousReportGenerator")
 
     # ----------------------------------------------------------------------
@@ -57,7 +70,7 @@ class AutonomousReportGenerator:
 
         try:
             self.logger.info("Creating analyst personas", topic=topic)
-            structured_llm = self.llm.with_structured_output(Perspectives)
+            structured_llm = self.llm.with_structured_output(Perspectives, method="json_schema")
             system_prompt = CREATE_ANALYSTS_PROMPT.render(
                 topic=topic, max_analysts=max_analysts,
                 human_analyst_feedback=human_analyst_feedback,
@@ -97,7 +110,7 @@ class AutonomousReportGenerator:
                 HumanMessage(content="\n\n".join(sections))
             ])
             self.logger.info("Report written successfully")
-            return {"content": report.content}
+            return {"content": _message_text(report)}
         except Exception as e:
             self.logger.error("Error writing main report", error=str(e))
             raise ResearchAnalystException("Failed to write main report", e)
@@ -117,8 +130,8 @@ class AutonomousReportGenerator:
                 SystemMessage(content=system_prompt),
                 HumanMessage(content="Write the report introduction")
             ])
-            self.logger.info("Introduction generated", length=len(intro.content))
-            return {"introduction": intro.content}
+            self.logger.info("Introduction generated", length=len(_message_text(intro)))
+            return {"introduction": _message_text(intro)}
         except Exception as e:
             self.logger.error("Error generating introduction", error=str(e))
             raise ResearchAnalystException("Failed to generate introduction", e)
@@ -138,8 +151,8 @@ class AutonomousReportGenerator:
                 SystemMessage(content=system_prompt),
                 HumanMessage(content="Write the report conclusion")
             ])
-            self.logger.info("Conclusion generated", length=len(conclusion.content))
-            return {"conclusion": conclusion.content}
+            self.logger.info("Conclusion generated", length=len(_message_text(conclusion)))
+            return {"conclusion": _message_text(conclusion)}
         except Exception as e:
             self.logger.error("Error generating conclusion", error=str(e))
             raise ResearchAnalystException("Failed to generate conclusion", e)

@@ -1,0 +1,25 @@
+{"timestamp": "2026-11-10T14:52:58.584286Z", "level": "info", "event": "Initializing ApiKeyManager"}
+{"timestamp": "2026-11-10T14:52:58.584696Z", "level": "info", "event": "ANTHROPIC_API_KEY loaded successfully from environment"}
+{"timestamp": "2026-11-10T14:52:58.584918Z", "level": "info", "event": "OPENAI_API_KEY loaded successfully from environment"}
+{"timestamp": "2026-11-10T14:52:58.585030Z", "level": "info", "event": "GOOGLE_API_KEY loaded successfully from environment"}
+{"timestamp": "2026-11-10T14:52:58.585110Z", "level": "info", "event": "GROQ_API_KEY loaded successfully from environment"}
+{"path": "D:\\ARTIFICIAL INTELLIGENCE\\Multi-Agent System for Research Analysis and Generation Automation\\automated-research-synthesis\\research_and_analyst\\config\\configuration.yaml", "keys": ["astra_db", "embedding_model", "retriever", "llm"], "timestamp": "2026-11-10T14:52:58.587673Z", "level": "info", "event": "Configuration loaded successfully"}
+{"config_keys": ["astra_db", "embedding_model", "retriever", "llm"], "timestamp": "2026-11-10T14:52:58.588996Z", "level": "info", "event": "YAML configuration loaded successfully"}
+{"provider": "anthropic", "model": "claude-sonnet-5-5", "timestamp": "2026-11-10T14:52:58.589141Z", "level": "info", "event": "Loading LLM"}
+{"provider": "anthropic", "model": "claude-sonnet-5-5", "timestamp": "2026-11-10T14:52:58.589530Z", "level": "info", "event": "LLM loaded successfully"}
+{"module": "InterviewGraphBuilder", "timestamp": "2026-11-10T14:52:58.589825Z", "level": "info", "event": "Building Interview Graph workflow"}
+{"module": "InterviewGraphBuilder", "timestamp": "2026-11-10T14:52:58.601307Z", "level": "info", "event": "Interview Graph compiled successfully"}
+{"module": "InterviewGraphBuilder", "analyst": "Dr X", "timestamp": "2026-11-10T14:52:58.607312Z", "level": "info", "event": "Generating analyst question"}
+HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+{"module": "InterviewGraphBuilder", "question_preview": "Yes, that's right. Thanks for making time, expert. I'm Maya Chen, and I'm focusing on one piece of the clean energy story: what it costs to build, run, and upgrade the grid. Much of the public convers", "timestamp": "2026-11-10T14:53:03.495948Z", "level": "info", "event": "Question generated successfully"}
+{"module": "InterviewGraphBuilder", "timestamp": "2026-11-10T14:53:03.497650Z", "level": "info", "event": "Generating search query from conversation"}
+HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+{"module": "InterviewGraphBuilder", "query": "clean energy transition grid costs transmission distribution reliability misconceptions beyond cost of generation utility bills", "timestamp": "2026-11-10T14:53:06.258512Z", "level": "info", "event": "Performing Tavily web search"}
+{"module": "InterviewGraphBuilder", "result_count": 2, "timestamp": "2026-11-10T14:53:11.363819Z", "level": "info", "event": "Web search completed"}
+{"module": "InterviewGraphBuilder", "analyst": "Dr X", "timestamp": "2026-11-10T14:53:11.364987Z", "level": "info", "event": "Generating expert answer"}
+HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+{"module": "InterviewGraphBuilder", "preview": "Expert : The context doesn't give detailed line-item cost breakdowns for transmission or distribution, but it does address a few common misconceptions and one concrete example.\n\n**Misconception: we ne", "timestamp": "2026-11-10T14:53:19.774598Z", "level": "info", "event": "Expert answer generated successfully"}
+{"module": "InterviewGraphBuilder", "message_count": 3, "timestamp": "2026-11-10T14:53:19.776146Z", "level": "info", "event": "Interview transcript saved"}
+{"module": "InterviewGraphBuilder", "analyst": "Dr X", "timestamp": "2026-11-10T14:53:19.777977Z", "level": "info", "event": "Generating report section"}
+HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+{"module": "InterviewGraphBuilder", "length": 5413, "timestamp": "2026-11-10T14:53:32.671904Z", "level": "info", "event": "Report section generated successfully"}

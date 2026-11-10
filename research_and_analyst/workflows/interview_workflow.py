@@ -1,6 +1,6 @@
 from langgraph.graph import StateGraph, START, END
 from langgraph.checkpoint.memory import MemorySaver
-from langchain_core.messages import HumanMessage, SystemMessage
+from langchain_core.messages import AIMessage, HumanMessage, SystemMessage
 from langchain_core.messages import get_buffer_string
 from langgraph.types import Send
 
@@ -35,6 +35,27 @@ class InterviewGraphBuilder:
         self.memory = MemorySaver()
         self.logger = GLOBAL_LOGGER.bind(module="InterviewGraphBuilder")
 
+    @staticmethod
+    def _ensure_ends_with_user(messages):
+        """Newer Claude models reject assistant-prefill, so the prompt must end with a user turn."""
+        messages = list(messages)
+        if not messages or not isinstance(messages[-1], HumanMessage):
+            messages.append(HumanMessage(content="Please continue."))
+        return messages
+
+    @staticmethod
+    def _plain_text_message(msg):
+        """Drop thinking blocks (their signatures are bound to the system prompt that created them
+        and are rejected when replayed under a different one) and keep only the text."""
+        content = msg.content
+        if isinstance(content, list):
+            content = "".join(
+                b.get("text", "") if isinstance(b, dict) else str(b)
+                for b in content
+                if not isinstance(b, dict) or b.get("type") == "text"
+            )
+        return AIMessage(content=content)
+
     # ----------------------------------------------------------------------
     # 🔹 Step 1: Analyst generates question
     # ----------------------------------------------------------------------
@@ -48,7 +69,8 @@ class InterviewGraphBuilder:
         try:
             self.logger.info("Generating analyst question", analyst=analyst.name)
             system_prompt = ANALYST_ASK_QUESTIONS.render(goals=analyst.persona)
-            question = self.llm.invoke([SystemMessage(content=system_prompt)] + messages)
+            question = self.llm.invoke([SystemMessage(content=system_prompt)] + self._ensure_ends_with_user(messages))
+            question = self._plain_text_message(question)
             self.logger.info("Question generated successfully", question_preview=question.content[:200])
             return {"messages": [question]}
 
@@ -65,12 +87,16 @@ class InterviewGraphBuilder:
         """
         try:
             self.logger.info("Generating search query from conversation")
-            structure_llm = self.llm.with_structured_output(SearchQuery)
+            structure_llm = self.llm.with_structured_output(SearchQuery, method="json_schema")
             search_prompt = GENERATE_SEARCH_QUERY.render()
-            search_query = structure_llm.invoke([SystemMessage(content=search_prompt)] + state["messages"])
+            search_query = structure_llm.invoke([SystemMessage(content=search_prompt)] + self._ensure_ends_with_user(state["messages"]))
 
             self.logger.info("Performing Tavily web search", query=search_query.search_query)
             search_docs = self.tavily_search.invoke(search_query.search_query)
+
+            if isinstance(search_docs, str):
+                # TavilySearchResults returns the error text as a string on failure (e.g. 401).
+                raise RuntimeError(f"Tavily search failed: {search_docs}")
 
             if not search_docs:
                 self.logger.warning("No search results found")
@@ -103,7 +129,8 @@ class InterviewGraphBuilder:
         try:
             self.logger.info("Generating expert answer", analyst=analyst.name)
             system_prompt = GENERATE_ANSWERS.render(goals=analyst.persona, context=context)
-            answer = self.llm.invoke([SystemMessage(content=system_prompt)] + messages)
+            answer = self.llm.invoke([SystemMessage(content=system_prompt)] + self._ensure_ends_with_user(messages))
+            answer = self._plain_text_message(answer)
             answer.name = "expert"
             self.logger.info("Expert answer generated successfully", preview=answer.content[:200])
             return {"messages": [answer]}
@@ -147,7 +174,7 @@ class InterviewGraphBuilder:
                 + [HumanMessage(content=f"Use this source to write your section: {context}")]
             )
             self.logger.info("Report section generated successfully", length=len(section.content))
-            return {"sections": [section.content]}
+            return {"sections": [self._plain_text_message(section).content]}
 
         except Exception as e:
             self.logger.error("Error writing report section", error=str(e))
